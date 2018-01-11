@@ -1,5 +1,4 @@
 /usr/share/arduino/hardware/arduino/cores/arduino
-/usr/share/arduino/libraries/EEPROM
 /usr/share/arduino/libraries/Esplora
 /usr/share/arduino/libraries/Ethernet
 /usr/share/arduino/libraries/Firmata
@@ -15,3 +14,4 @@
 /usr/share/arduino/libraries/TFT
 /usr/share/arduino/libraries/WiFi
 /usr/share/arduino/libraries/Wire
+.
