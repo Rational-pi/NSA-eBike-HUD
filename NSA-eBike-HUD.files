@@ -1,5 +1,7 @@
 app.cpp
 app.h
+powermeter.cpp
+powermeter.h
 usrdata.h
 main.cpp
 .gitignore

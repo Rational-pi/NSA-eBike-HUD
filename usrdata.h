@@ -6,9 +6,14 @@
 
 #define V1 0x0001
 
+#include "powermeter.h"
+
 struct UsrData{
+    //DATA
     bool loadedFromEEprom;
     uint64_t num;
+    PowerMeter::Calib powercalib;
+    //
     static UsrData *read(){
         UsrData *ret=new UsrData();
         if (eeprom_read_byte(0)==((char*)(&version))[0] &&
