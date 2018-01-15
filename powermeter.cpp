@@ -1,15 +1,25 @@
 #include "powermeter.h"
 #include "Arduino.h"
-PowerMeter::PowerMeter(uint8_t voltagePin, uint8_t currentPin):
+#include "usrdata.h"
+Powermeter::Powermeter(uint8_t voltagePin, uint8_t currentPin, UsrData *data):
+    UsrDataUsr_base(data),
     voltagePin(voltagePin),
     currentPin(currentPin),
     lastMills(millis())
 {
+    if(data->loadedFromEEprom){
+        this->data=data->powerData;
+    }
 }
 
-void PowerMeter::read(){
-    voltageReed=calib.voltageReadRatio*analogRead(voltagePin);
-    currentReed=calib.currentReadRatio*analogRead(currentPin);
+Powermeter::~Powermeter()
+{
+    ParentusrData->powerData=data;
+}
+
+void Powermeter::read(){
+    voltageReed=data.voltageReadRatio*analogRead(voltagePin);
+    currentReed=data.currentReadRatio*analogRead(currentPin);
     unsigned long tmp=lastMills;
-    power+=((lastMills=millis())-tmp)*voltageReed*currentReed/1000;//dt(s)*I*U
+    data.powerCounted+=((lastMills=millis())-tmp)*voltageReed*currentReed/1000;//dt(s)*I*U
 }

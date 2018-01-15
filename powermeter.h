@@ -2,22 +2,27 @@
 #define POWERMETER_H
 #include "inttypes.h"
 
-class PowerMeter
+
+#include "usrdatausr_base.h"
+
+struct Powermeter: public UsrDataUsr_base
 {
-public:
-    struct Calib{
+    struct Data{
         float currentReadRatio;
         float voltageReadRatio;
-    }calib;
-    PowerMeter(uint8_t voltagePin, uint8_t currentPin);
+        float maxPower;
+        float powerCounted;
+    };
+    Powermeter(uint8_t voltagePin, uint8_t currentPin, UsrData *data);
+    ~Powermeter();
     void read();
 private:
+    Data data;
     unsigned long lastMills;
     uint8_t voltagePin;
     uint8_t currentPin;
     float voltageReed;
     float currentReed;
-    float power;
 };
 
 #endif // POWERMETER_H

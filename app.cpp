@@ -2,24 +2,36 @@
 #include <Arduino.h>
 #include "usrdata.h"
 
-#define LED_PIN     13
-#define DELAY_MS    200
-
 App::App()
 {
-    init();// Initialize Arduino Librairies
-    pinMode(LED_PIN, OUTPUT);
-    Serial.begin(9600);
+    init(); /* Initialize Arduino Librairies */
 }
 
 void App::run()
 {
-    UsrData *ee=UsrData::build();
-    ee->num+=1;
-    UsrData::wright(ee);
-    while (true){
+    UsrData *data;
+    Powermeter *pm;
+    Tachometer *tm;
+    Display *dip;
 
-        for (unsigned int t=0; t<sizeof(ee->num); t++)
-            Serial.write(((char*)&ee->num)[t]);
+    while (true) {
+
+        data=UsrData::build(0);/*give you the property*/ /* new UsrData(); */
+        pm=new Powermeter(0,0,data);
+        tm=new Tachometer(data);
+        dip=new Display(pm,tm,data);
+
+        while (/*PowerON*/true){
+            /*UPDATE STATE*/
+        }UsrData::wright(data);
+
+        delete data;
+        delete pm;
+        delete tm;
+        delete dip;
+
+        while (/*PowerOFF*/false){
+            delay(200);
+        }
     }
 }

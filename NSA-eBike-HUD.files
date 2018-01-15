@@ -1,7 +1,14 @@
+display.cpp
+display.h
+usrdatausr_base.cpp
+usrdatausr_base.h
 app.cpp
 app.h
 powermeter.cpp
 powermeter.h
+tachometer.cpp
+tachometer.h
+usrdata.cpp
 usrdata.h
 main.cpp
 .gitignore
