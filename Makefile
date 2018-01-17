@@ -5,13 +5,13 @@ TARGET          = output
 ARDUINO_LIBS    =  
 
 
-BOARD_TAG	= 
+BOARD_TAG	= nano328
 BOARD_SUB	= 
 # If you found problem on compile, you can uncomment and change MCU and F_CPU
 # To know what MCU you can use check board.txt on end of this file
 #MCU		# 
 #F_CPU		= 16000000
-MONITOR_PORT = /dev/ttyACM0
+MONITOR_PORT = /dev/ttyUSB0
 
 # Avrdude code for programming
 AVRDUDE		= $(ARDUINO_DIR)/hardware/tools/avrdude
