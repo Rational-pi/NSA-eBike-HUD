@@ -8,13 +8,11 @@
 
 #include "powermeter.h"
 #include "tachometer.h"
-#include "display.h"
 
 struct UsrData{
     bool loadedFromEEprom;
     Powermeter::Data powerData;
     Tachometer::Data tachometerData;
-    Display::Data displayData;
     static void wright(UsrData *x);
     static UsrData *build(uint16_t memoryOffset);
 private:

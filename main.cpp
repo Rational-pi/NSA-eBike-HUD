@@ -13,6 +13,6 @@ Created using QtCreator
 
 int main()
 {
-    App *app=new App();
+    App *app=new App(12, 11, 10, 9, 8, 7);
     app->run();
 }
