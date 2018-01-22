@@ -13,3 +13,7 @@ HEADERS +=tachometer.h
 SOURCES +=usrdata.cpp
 HEADERS +=usrdata.h
 SOURCES +=main.cpp
+
+DISTFILES += \
+    NSA-eBike-HUD.files \
+    NSA-eBike-HUD.includes
