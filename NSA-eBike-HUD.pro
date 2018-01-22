@@ -1,3 +1,5 @@
+INCLUDEPATH += $$PWD/dummyHeaders
+
 SOURCES +=rotaryencoder.cpp
 HEADERS +=rotaryencoder.h
 SOURCES +=usrdatausr_base.cpp
