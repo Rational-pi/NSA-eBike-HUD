@@ -6,7 +6,7 @@
 
 namespace RotaryENcoder {
 
-void initRotary();
+void initRotary(LiquidCrystal &lcd);
 
 int getPose();
 
