@@ -1,18 +1,20 @@
 INCLUDEPATH += $$PWD/dummyHeaders
 
-SOURCES +=rotaryencoder.cpp
-HEADERS +=rotaryencoder.h
-SOURCES +=usrdatausr_base.cpp
-HEADERS +=usrdatausr_base.h
-SOURCES +=app.cpp
-HEADERS +=app.h
-SOURCES +=powermeter.cpp
-HEADERS +=powermeter.h
-SOURCES +=tachometer.cpp
-HEADERS +=tachometer.h
-SOURCES +=usrdata.cpp
-HEADERS +=usrdata.h
-SOURCES +=main.cpp
+SOURCES +=rotaryencoder.cpp \
+    ui_base.cpp \
+    usrdatausr_base.cpp \
+    app.cpp \
+    powermeter.cpp \
+    tachometer.cpp \
+    usrdata.cpp \
+    main.cpp \
+HEADERS +=rotaryencoder.h \
+    ui_base.h \
+    usrdatausr_base.h \
+    app.h \
+    powermeter.h \
+    tachometer.h \
+    usrdata.h
 
 DISTFILES += \
     NSA-eBike-HUD.files \
