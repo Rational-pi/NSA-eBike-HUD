@@ -10,8 +10,7 @@ void CBintEncoder(){
     uint8_t val= PIND&0x05;
     if (val==4&&last==1)/*CW*/pose+=1;/*1>4*/
     if (val==5&&last==0)/*CCW*/pose-=1;/*0>5*/
-
-    last=val;
+    if (val&0x04==0x00) last=val;
 
     lcd->clear();
     lcd->setCursor(0,0);
