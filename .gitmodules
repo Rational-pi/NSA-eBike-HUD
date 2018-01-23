@@ -1,0 +1,3 @@
+[submodule "ArduinoHeaders"]
+	path = ArduinoHeaders
+	url = https://github.com/Rational-pi/ArduinoHeaders.git

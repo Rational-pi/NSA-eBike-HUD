@@ -1,4 +1,4 @@
-INCLUDEPATH += $$PWD/dummyHeaders
+INCLUDEPATH += $$PWD/ArduinoHeaders
 
 SOURCES +=rotaryencoder.cpp \
     ui_base.cpp \
