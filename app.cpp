@@ -63,5 +63,9 @@ void App::run()
     int count=0;
     float read=analogRead(7);
     float ratio=45.3653174f/1024;
-    while (true){}
+    uint8_t state;
+    Serial.begin(9600);
+    while (true){
+        Serial.println(RotaryENcoder::getPose());
+    }
 }

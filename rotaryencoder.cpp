@@ -2,21 +2,24 @@
 
 namespace RotaryENcoder {
 LiquidCrystal *lcd;
-uint8_t last=0;
-uint8_t SW, DT, CLK;
+uint8_t state;
 int16_t pose;
+uint8_t lastCLK=0x01;
 
 void CBintEncoder(){
-    uint8_t val= PIND&0x05;
-    if (val==4&&last==1)/*CW*/pose+=1;/*1>4*/
-    if (val==5&&last==0)/*CCW*/pose-=1;/*0>5*/
-    if (val&0x04==0x00) last=val;
+    state=PIND;
+    /*false pulses are always the same clk as before, so we escape them*/
+    if((state>>2&0x01)==lastCLK)return;
+    lastCLK=state>>2&0x01;
 
-    lcd->clear();
-    lcd->setCursor(0,0);
-    lcd->print(val);
-    lcd->setCursor(0,1);
-    lcd->print(pose);
+    switch (state&0x14) {
+    case 4:/*CW*/
+        pose++;
+        break;
+    case 20:/*CCW*/
+        pose--;
+        break;
+    }
 }
 
 }
@@ -26,13 +29,10 @@ void CBintEncoder(){
 void RotaryENcoder::initRotary(LiquidCrystal &lcd)
 {
     RotaryENcoder::lcd=&lcd;
-    DT=0;
-    SW=1;
-    CLK=2;
     pose=0;
-    pinMode(DT, INPUT);
-    pinMode(SW, INPUT);
-    pinMode(CLK, INPUT);
+    pinMode(1, INPUT);
+    pinMode(2, INPUT);
+    pinMode(4, INPUT);
     attachInterrupt(0/*digital pin 2*//*CLK*/, CBintEncoder, CHANGE);
 }
 
