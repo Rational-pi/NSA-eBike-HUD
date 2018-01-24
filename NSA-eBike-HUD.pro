@@ -9,7 +9,8 @@ SOURCES += \
     tachometer.cpp \
     usrdata.cpp \
     main.cpp \
-    inputlistener.cpp
+    inputlistener.cpp \
+    ui_usriotester.cpp
 
 HEADERS += \
     rotaryencoder.h \
@@ -19,7 +20,8 @@ HEADERS += \
     powermeter.h \
     tachometer.h \
     usrdata.h \
-    inputlistener.h
+    inputlistener.h \
+    ui_usriotester.h
 
 DISTFILES += \
     NSA-eBike-HUD.files \
