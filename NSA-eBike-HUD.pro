@@ -1,6 +1,7 @@
 INCLUDEPATH += $$PWD/ArduinoHeaders
 
-SOURCES +=rotaryencoder.cpp \
+SOURCES += \
+    rotaryencoder.cpp \
     ui_base.cpp \
     usrdatausr_base.cpp \
     app.cpp \
@@ -8,13 +9,17 @@ SOURCES +=rotaryencoder.cpp \
     tachometer.cpp \
     usrdata.cpp \
     main.cpp \
-HEADERS +=rotaryencoder.h \
+    inputlistener.cpp
+
+HEADERS += \
+    rotaryencoder.h \
     ui_base.h \
     usrdatausr_base.h \
     app.h \
     powermeter.h \
     tachometer.h \
-    usrdata.h
+    usrdata.h \
+    inputlistener.h
 
 DISTFILES += \
     NSA-eBike-HUD.files \
