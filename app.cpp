@@ -2,6 +2,7 @@
 #include <Arduino.h>
 #include "usrdata.h"
 #include "rotaryencoder.h"
+#include "ui_base.h"
 
 App::App(uint8_t rs, uint8_t enable, uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3):
     lcd(rs,enable,d0,d1,d2,d3)
@@ -30,36 +31,51 @@ void App::welcomeAnimation(uint8_t charDelay)
 }
 
 
-
+#define RUNAPP true
+#define ONMODE true
 void App::run()
 {
-    welcomeAnimation(50);
+
     /*APP*/{
-        UsrData *data;
-        Powermeter *pm;
-        Tachometer *tm;
-        while (false) {
+        welcomeAnimation(50);
+        int lastPose,thisPose;
+        Ui_Base *CurrentUI=new Ui_Base(this);
+        //UsrData *data;
+        //Powermeter *pm;
+        //Tachometer *tm;
+        while (RUNAPP) {
+            //data=UsrData::build(0);/*give you the property*/ /* new UsrData(); */
+            //pm=new Powermeter(7,0,data);
+            //tm=new Tachometer(data);
+            RotaryENcoder::initRotary();
+            lastPose=RotaryENcoder::getPose();
 
-            data=UsrData::build(0);/*give you the property*/ /* new UsrData(); */
-            pm=new Powermeter(7,0,data);
-            tm=new Tachometer(data);
-
-            while (/*PowerON*/true){
-                /*UPDATE STATE*/
-            }UsrData::wright(data);
-
-            delete data;
-            delete pm;
-            delete tm;
-
-            while (/*PowerOFF*/false){
+            while (ONMODE){
+                //Encoder rotation event emiting
+                thisPose=RotaryENcoder::getPose();
+                if (thisPose!=lastPose){
+                    CurrentUI->HandleDelta(thisPose-lastPose);
+                    lastPose=thisPose;
+                }
+                //Encoder click event emmiting
+                if(RotaryENcoder::clicked())CurrentUI->HandleClick();
+                //Compute
+                CurrentUI->compute();
+                //Render
+                CurrentUI->render();
+            }
+            //UsrData::wright(data);
+            //delete data;
+            //delete pm;
+            //delete tm;
+            while (!ONMODE){
                 delay(200);
             }
         }
     }
 
 
-    RotaryENcoder::initRotary(lcd);
+    RotaryENcoder::initRotary();
     int count=0;
     float read=analogRead(7);
     float ratio=45.3653174f/1024;

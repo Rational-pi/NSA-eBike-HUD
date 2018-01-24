@@ -2,13 +2,12 @@
 #define ROTARYENCODER_H
 
 #include <Arduino.h>
-#include "LiquidCrystal.h"
 
 namespace RotaryENcoder {
 
-void initRotary(LiquidCrystal &lcd);
-
+void initRotary();
 int getPose();
+bool clicked();
 
 }
 
