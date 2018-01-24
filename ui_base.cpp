@@ -1,7 +1,13 @@
 #include "ui_base.h"
 #include "Arduino.h"
 
-Ui_Base::Ui_Base(App *app):InputListener(app),needRendering(true){}
+Ui_Base::Ui_Base(App *app):
+    InputListener(app),
+    needRendering(true),
+    exitRequested(false)
+{
+
+}
 
 void Ui_Base::compute()
 {
@@ -17,4 +23,14 @@ void Ui_Base::render()
         app->lcd.setCursor(0,1);
         app->lcd.print("NOT IMPLEMENTED");
     }needRendering=false;
+}
+
+void Ui_Base::HandleClick()
+{
+    exit();
+}
+
+void Ui_Base::exit()
+{
+    exitRequested=true;
 }

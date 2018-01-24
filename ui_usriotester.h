@@ -14,6 +14,7 @@ public:
     virtual void render();
     virtual void HandleClick();
     virtual void HandleDelta(int8_t delta);
+    virtual void compute();
 };
 
 #endif // UI_USRIOTESTER_H
