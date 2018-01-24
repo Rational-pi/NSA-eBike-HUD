@@ -1,0 +1,3 @@
+[submodule "1602-AAF"]
+	path = 1602-AAF
+	url = https://github.com/Rational-pi/1602-AAF.git

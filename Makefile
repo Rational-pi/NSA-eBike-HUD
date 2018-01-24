@@ -2,7 +2,7 @@
 ARDUINO_DIR     = /usr/share/arduino
 AVR_TOOLS_DIR	= /usr/share/arduino/hardware/tools/avr
 TARGET          = output
-ARDUINO_LIBS    = LiquidCrystal AppLibNSA
+ARDUINO_LIBS    = LiquidCrystal 1602-AAF
 USER_LIB_PATH   = .
 
 
