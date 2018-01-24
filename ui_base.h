@@ -1,13 +1,11 @@
 #ifndef UI_BASE_H
 #define UI_BASE_H
 
+#include "inputlistener.h"
 
-class Ui_Base
+struct Ui_Base : public InputListener
 {
-public:
     Ui_Base();
-    void HandleClick();
-    void HandleDelta();
     void compute();
     void render();
 };
