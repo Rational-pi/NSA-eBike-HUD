@@ -12,10 +12,10 @@ struct AppImpl:public App
             uint8_t d3):
         App(rs,enable,d0,d1,d2,d3){}
 protected:
-    virtual bool AppOnMode(){return true;}
-    virtual void AppInit(){}
-    virtual void AppLoop(){}
-    virtual void AppDelete(){}
+    virtual bool AppOnMode();
+    virtual void AppInit();
+    virtual void AppLoop();
+    virtual void AppDelete();
 };
 
 #endif // APPIMPL_H

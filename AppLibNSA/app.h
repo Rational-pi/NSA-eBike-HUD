@@ -15,7 +15,7 @@ public:
     void openSubUI(Ui_Base *subUi);
     App(uint8_t rs, uint8_t enable,
         uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3);
-    void run();
+    void run(Ui_Base *MainUI);
     LiquidCrystal lcd;
 protected:
     virtual bool AppOnMode()=0;

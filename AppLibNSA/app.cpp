@@ -38,12 +38,17 @@ void App::openSubUI(Ui_Base *subUi)
 }
 
 
-void App::run()
+void App::run(Ui_Base *MainUI)
 {
     /*APP*/{
         welcomeAnimation(50);
         int lastPose,thisPose;
-        UiArray.push_back(new UI_usrIOtester(this));
+        if (MainUI){
+            UiArray.push_back(MainUI);
+        }else{
+            UiArray.push_back(new UI_usrIOtester(this));
+        }
+
         while (true) {
             AppInit();
             RotaryENcoder::initRotary();
