@@ -36,8 +36,8 @@ void App::welcomeAnimation(uint8_t charDelay)
 /// App is the owner of subUi then
 void App::openSubUI(Ui_Base *subUi)
 {
-    if(UiID>=UI_MAX_DEPTH-1)return;
-    UiArray[++UiID]=subUi;
+    UiArray.push_back(subUi);
+    UiID++;
 }
 
 
@@ -48,7 +48,7 @@ void App::run()
     /*APP*/{
         welcomeAnimation(50);
         int lastPose,thisPose;
-        UiArray[UiID]=new UI_usrIOtester(this);
+        UiArray.push_back(new UI_usrIOtester(this));
         //UsrData *data;
         //Powermeter *pm;
         //Tachometer *tm;
@@ -63,6 +63,7 @@ void App::run()
                 //UI navigation
                 if(UiArray[UiID]->exitRequested && UiID!=0){
                     delete UiArray[UiID];
+                    UiArray.pop_back();
                     UiID--;
                 }
 
@@ -80,7 +81,10 @@ void App::run()
                 UiArray[UiID]->compute();
 
                 //Render
-                UiArray[UiID]->render();
+                if(UiArray[UiID]->needRendering){
+                    UiArray[UiID]->render();
+                    UiArray[UiID]->needRendering=false;
+                }
             }
             //UsrData::wright(data);
             //delete data;

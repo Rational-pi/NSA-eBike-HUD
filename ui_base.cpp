@@ -16,13 +16,11 @@ void Ui_Base::compute()
 
 void Ui_Base::render()
 {
-    if (needRendering){
-        app->lcd.clear();
-        app->lcd.setCursor(0,0);
-        app->lcd.print("UI");
-        app->lcd.setCursor(0,1);
-        app->lcd.print("NOT IMPLEMENTED");
-    }needRendering=false;
+    app->lcd.clear();
+    app->lcd.setCursor(0,0);
+    app->lcd.print("UI NOT");
+    app->lcd.setCursor(0,1);
+    app->lcd.print("IMPLEMENTED!");
 }
 
 void Ui_Base::HandleClick()

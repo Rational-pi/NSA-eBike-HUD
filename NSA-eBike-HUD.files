@@ -1,3 +1,6 @@
+vector.h
+ui_menu_base.cpp
+ui_menu_base.h
 ui_usriotester.cpp
 ui_usriotester.h
 inputlistener.cpp

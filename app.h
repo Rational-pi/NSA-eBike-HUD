@@ -1,15 +1,14 @@
 #ifndef APP_H
 #define APP_H
-#define UI_MAX_DEPTH 10
 
 #include "LiquidCrystal.h"
-
+#include "vector.h"
 
 class Ui_Base;
 
 class App
 {
-    Ui_Base *UiArray[UI_MAX_DEPTH];
+    Vector<Ui_Base *> UiArray;
     uint8_t UiID;
     void welcomeAnimation(uint8_t charDelay);
 public:
