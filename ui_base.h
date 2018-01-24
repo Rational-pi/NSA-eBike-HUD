@@ -5,9 +5,9 @@
 
 struct Ui_Base : public InputListener
 {
-    Ui_Base();
-    void compute();
-    void render();
+    Ui_Base(App *app);
+    virtual void compute();
+    virtual void render();
 };
 
 #endif // UI_BASE_H
