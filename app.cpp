@@ -3,6 +3,7 @@
 #include "usrdata.h"
 #include "rotaryencoder.h"
 #include "ui_base.h"
+#include "ui_usriotester.h"
 
 App::App(uint8_t rs, uint8_t enable, uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3):
     lcd(rs,enable,d0,d1,d2,d3)
@@ -39,7 +40,7 @@ void App::run()
     /*APP*/{
         welcomeAnimation(50);
         int lastPose,thisPose;
-        Ui_Base *CurrentUI=new Ui_Base(this);
+        Ui_Base *CurrentUI=new UI_usrIOtester(this);
         //UsrData *data;
         //Powermeter *pm;
         //Tachometer *tm;
@@ -57,10 +58,13 @@ void App::run()
                     CurrentUI->HandleDelta(thisPose-lastPose);
                     lastPose=thisPose;
                 }
+
                 //Encoder click event emmiting
                 if(RotaryENcoder::clicked())CurrentUI->HandleClick();
+
                 //Compute
                 CurrentUI->compute();
+
                 //Render
                 CurrentUI->render();
             }
