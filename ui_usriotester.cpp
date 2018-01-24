@@ -37,5 +37,6 @@ void UI_usrIOtester::compute()
 {
     if (count==42){
         app->openSubUI(new Ui_Base(app));
+        count=0;
     }
 }
