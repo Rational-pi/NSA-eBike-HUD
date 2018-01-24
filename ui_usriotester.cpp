@@ -32,3 +32,10 @@ void UI_usrIOtester::HandleDelta(int8_t delta){
     changed=true;
     count+=delta;
 }
+
+void UI_usrIOtester::compute()
+{
+    if (count==42){
+        app->openSubUI(new Ui_Base(app));
+    }
+}
