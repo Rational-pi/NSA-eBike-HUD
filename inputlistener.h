@@ -1,11 +1,15 @@
 #ifndef INPUTLISTENER_H
 #define INPUTLISTENER_H
 
+#include "app.h"
 
 struct InputListener
 {
-    virtual void HandleClick();
-    virtual void HandleDelta();
+    InputListener(App *app);
+    virtual void HandleClick()=0;
+    virtual void HandleDelta(int8_t delta)=0;
+protected:
+    App *app;
 };
 
 #endif // INPUTLISTENER_H

@@ -1,6 +1,4 @@
 #include "inputlistener.h"
 
-InputListener::InputListener()
-{
 
-}
+InputListener::InputListener(App *app):app(app){}
