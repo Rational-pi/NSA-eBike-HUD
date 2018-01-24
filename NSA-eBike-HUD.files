@@ -1,3 +1,5 @@
+ui_usriotester.cpp
+ui_usriotester.h
 inputlistener.cpp
 inputlistener.h
 ui_base.cpp

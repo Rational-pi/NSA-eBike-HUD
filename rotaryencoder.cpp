@@ -26,7 +26,7 @@ void CBintEncoder(){
 
 bool RotaryENcoder::clicked()
 {
-    bool pressed = !PIND>>1&0x01;
+    bool pressed = (PIND>>1&0x01)==0x00;
     bool clicked = !SWwasPressed && pressed;
     SWwasPressed = pressed;
     return clicked;
