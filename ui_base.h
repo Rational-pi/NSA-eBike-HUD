@@ -8,6 +8,8 @@ struct Ui_Base : public InputListener
     Ui_Base(App *app);
     virtual void compute();
     virtual void render();
+protected:
+    bool needRendering;
 };
 
 #endif // UI_BASE_H

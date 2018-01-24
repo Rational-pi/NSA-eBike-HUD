@@ -6,10 +6,11 @@
 struct InputListener
 {
     InputListener(App *app);
-    virtual void HandleClick()=0;
-    virtual void HandleDelta(int8_t delta)=0;
+    virtual void HandleClick();
+    virtual void HandleDelta(int8_t delta);
 protected:
     App *app;
+
 };
 
 #endif // INPUTLISTENER_H

@@ -1,10 +1,10 @@
 #include "rotaryencoder.h"
 
 namespace RotaryENcoder {
-LiquidCrystal *lcd;
 uint8_t state;
 int16_t pose;
 uint8_t lastCLK=0x01;
+bool SWwasPressed;
 
 void CBintEncoder(){
     state=PIND;
@@ -24,16 +24,24 @@ void CBintEncoder(){
 
 }
 
-
-
-void RotaryENcoder::initRotary(LiquidCrystal &lcd)
+bool RotaryENcoder::clicked()
 {
-    RotaryENcoder::lcd=&lcd;
+    bool pressed = !PIND>>1&0x01;
+    bool clicked = !SWwasPressed && pressed;
+    SWwasPressed = pressed;
+    return clicked;
+}
+
+
+
+void RotaryENcoder::initRotary()
+{
+    SWwasPressed=false;
     pose=0;
-    pinMode(1, INPUT);
-    pinMode(2, INPUT);
-    pinMode(4, INPUT);
-    attachInterrupt(0/*digital pin 2*//*CLK*/, CBintEncoder, CHANGE);
+    pinMode(1, INPUT);// SW  digital pin
+    pinMode(2, INPUT);// DT  digital pin
+    pinMode(4, INPUT);// CLK digital pin
+    attachInterrupt(0/*digital pin 2*/, CBintEncoder, CHANGE);
 }
 
 int RotaryENcoder::getPose()
