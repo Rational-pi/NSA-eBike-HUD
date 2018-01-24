@@ -4,7 +4,8 @@
 Ui_Base::Ui_Base(App *app):
     InputListener(app),
     needRendering(true),
-    exitRequested(false)
+    exitRequested(false),
+    getBackToMain(false)
 {
 
 }

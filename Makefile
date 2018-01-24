@@ -2,7 +2,8 @@
 ARDUINO_DIR     = /usr/share/arduino
 AVR_TOOLS_DIR	= /usr/share/arduino/hardware/tools/avr
 TARGET          = output
-ARDUINO_LIBS    = LiquidCrystal
+ARDUINO_LIBS    = LiquidCrystal AppLibNSA
+USER_LIB_PATH   = .
 
 
 BOARD_TAG	= nano328

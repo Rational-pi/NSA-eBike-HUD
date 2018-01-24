@@ -13,6 +13,7 @@ struct Ui_Base : public InputListener
 protected:
     void exit();
     bool needRendering;
+    bool getBackToMain;
 private:
     bool exitRequested;
     friend class App;

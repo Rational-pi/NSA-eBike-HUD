@@ -17,6 +17,11 @@ public:
         uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3);
     void run();
     LiquidCrystal lcd;
+protected:
+    virtual bool AppOnMode()=0;
+    virtual void AppInit()=0;
+    virtual void AppLoop()=0;
+    virtual void AppDelete()=0;
 };
 
 #endif // APP_H
