@@ -59,16 +59,15 @@ void App::run()
     }
 
 
-    RotaryENcoder::initRotary();
+    RotaryENcoder::initRotary(lcd);
     int count=0;
     float read=analogRead(7);
     float ratio=45.3653174f/1024;
-    while (true) {
-        count=RotaryENcoder::getPose();
+    uint8_t state;
+    while (true){
         lcd.clear();
         lcd.setCursor(3,0);
-        lcd.print(count);
-
+        lcd.print(RotaryENcoder::getPose());
         lcd.setCursor(10,1);
         read=read*0.95f+analogRead(7)*0.05f;
         lcd.print(ratio*read,3);
