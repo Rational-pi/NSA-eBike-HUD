@@ -1,27 +1,25 @@
-INCLUDEPATH += $$PWD/ArduinoHeaders
+INCLUDEPATH += \
+    $$PWD/src/1602-AAF \
+    $$PWD/../ArduinoHeaders
+
 
 SOURCES += \
-    rotaryencoder.cpp \
-    ui_base.cpp \
     usrdatausr_base.cpp \
-    app.cpp \
     powermeter.cpp \
     tachometer.cpp \
     usrdata.cpp \
-    main.cpp \
-    inputlistener.cpp \
-    ui_usriotester.cpp
+    src/1602-AAF/app.cpp \
+    src/1602-AAF/inputlistener.cpp \
+    src/1602-AAF/rotaryencoder.cpp \
+    src/1602-AAF/ui_base.cpp \
+    src/1602-AAF/ui_menu_base.cpp \
+    src/1602-AAF/ui_usriotester.cpp
 
 HEADERS += \
-    rotaryencoder.h \
-    ui_base.h \
     usrdatausr_base.h \
-    app.h \
     powermeter.h \
     tachometer.h \
-    usrdata.h \
-    inputlistener.h \
-    ui_usriotester.h
+    usrdata.h
 
 DISTFILES += \
     NSA-eBike-HUD.files \
