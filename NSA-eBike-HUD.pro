@@ -9,6 +9,7 @@ SOURCES += \
     tachometer.cpp \
     usrdata.cpp \
     src/1602-AAF/app.cpp \
+    appimpl.cpp \
     src/1602-AAF/inputlistener.cpp \
     src/1602-AAF/rotaryencoder.cpp \
     src/1602-AAF/ui_base.cpp \
@@ -19,6 +20,7 @@ HEADERS += \
     usrdatausr_base.h \
     powermeter.h \
     tachometer.h \
+    appimpl.h \
     usrdata.h
 
 DISTFILES += \
