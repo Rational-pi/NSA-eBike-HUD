@@ -1,9 +1,10 @@
-#include "app.h"
-App *app;
+#include "appimpl.h"
+#include "src/1602-AAF/ui_usriotester.h"
+AppImpl *app;
 void setup() {
-  app=new App(12, 11, 10, 9, 8, 7);
+  app=new AppImpl(12, 11, 10, 9, 8, 7);
 }
 
 void loop() {
-  app->run();
+  app->run(new UI_usrIOtester(app));
 }
