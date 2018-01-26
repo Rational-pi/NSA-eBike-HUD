@@ -25,4 +25,5 @@ HEADERS += \
 
 DISTFILES += \
     NSA-eBike-HUD.files \
-    NSA-eBike-HUD.includes
+    NSA-eBike-HUD.includes \
+    NSA-eBike-HUD.ino
