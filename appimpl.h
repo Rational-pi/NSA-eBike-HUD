@@ -13,7 +13,7 @@ struct AppImpl:public App
         App(rs,enable,d0,d1,d2,d3){}
 protected:
     virtual bool AppOnMode();
-    virtual void AppInit();
+    virtual Ui_Base *AppInit();
     virtual void AppLoop();
     virtual void AppDelete();
 };
