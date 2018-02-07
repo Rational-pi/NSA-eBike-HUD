@@ -21,7 +21,13 @@ HEADERS += \
     powermeter.h \
     tachometer.h \
     appimpl.h \
-    usrdata.h
+    usrdata.h \
+    src/1602-AAF/inputlistener.h \
+    src/1602-AAF/rotaryencoder.h \
+    src/1602-AAF/ui_base.h \
+    src/1602-AAF/ui_menu_base.h \
+    src/1602-AAF/ui_usriotester.h \
+    src/1602-AAF/vector.h
 
 DISTFILES += \
     NSA-eBike-HUD.files \
