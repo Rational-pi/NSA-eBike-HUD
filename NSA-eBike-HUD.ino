@@ -7,12 +7,5 @@ void setup() {
 }
 
 void loop() {
-    auto retUi_Base=[](App* a){return new Ui_Base(a);};
-    Ui_Menu_Base* ui=new Ui_Menu_Base(app);
-    ui->addItem("uiFactoryTest",retUi_Base);
-    ui->addItem("uiFactoryTest",retUi_Base);
-    ui->addItem("uiFactoryTest",retUi_Base);
-    ui->addItem("uiFactoryTest",retUi_Base);
-    ui->addItem("uiFactoryTest",retUi_Base);
-    app->run(ui);
+    app->run();
 }
