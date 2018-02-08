@@ -11,6 +11,7 @@ struct AppImpl:public App
             uint8_t d2,
             uint8_t d3):
         App(rs,enable,d0,d1,d2,d3){}
+    int val;
 protected:
     virtual bool AppOnMode();
     virtual Ui_Base *AppInit();
