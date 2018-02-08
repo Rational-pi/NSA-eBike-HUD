@@ -27,7 +27,8 @@ HEADERS += \
     src/1602-AAF/ui_base.h \
     src/1602-AAF/ui_menu_base.h \
     src/1602-AAF/ui_usriotester.h \
-    src/1602-AAF/vector.h
+    src/1602-AAF/vector.h \
+    src/1602-AAF/ui_valueeditor.h
 
 DISTFILES += \
     NSA-eBike-HUD.files \
