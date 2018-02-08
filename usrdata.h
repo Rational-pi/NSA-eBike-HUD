@@ -16,8 +16,6 @@ struct EEParser{
         for (unsigned int t=0; t<sizeof(Type); t++)
             eeprom_write_byte(eepromAdresse+t, *((char*)data + t));
     }
-private:
-    Type *data;
 };
 
 
