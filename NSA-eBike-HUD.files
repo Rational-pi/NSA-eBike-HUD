@@ -21,11 +21,4 @@ NSA-eBike-HUD.creator
 NSA-eBike-HUD.files
 NSA-eBike-HUD.includes
 NSA-eBike-HUD.ino
-powermeter.cpp
-powermeter.h
-tachometer.cpp
-tachometer.h
-usrdata.cpp
 usrdata.h
-usrdatausr_base.cpp
-usrdatausr_base.h

@@ -4,23 +4,22 @@
 #include <avr/eeprom.h>
 #include <inttypes.h>
 
-#define V1 0x0001
+///eeprom parser
+template <typename Type>
+struct EEParser{
+    static void read(Type *data,uint16_t eepromAdresse){
+        for (unsigned int t=0; t<sizeof(Type); t++)
+            *((char*)data + t) = eeprom_read_byte(eepromAdresse+t);
+    }
 
-#include "powermeter.h"
-#include "tachometer.h"
-
-struct UsrData{
-    bool loadedFromEEprom;
-    Powermeter::Data powerData;
-    Tachometer::Data tachometerData;
-    static void wright(UsrData *x);
-    static UsrData *build(uint16_t memoryOffset);
+    static void wright(Type *data,uint16_t eepromAdresse){
+        for (unsigned int t=0; t<sizeof(Type); t++)
+            eeprom_write_byte(eepromAdresse+t, *((char*)data + t));
+    }
 private:
-    UsrData();
-    static UsrData *read(uint16_t memoryOffset);
-    static uint16_t version;
-    uint16_t memoryOffset;
+    Type *data;
 };
+
 
 
 #endif // USRDATA_H
